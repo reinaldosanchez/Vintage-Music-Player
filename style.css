@@ -9,7 +9,7 @@
   }
 body{
 	background-image: url(/assets/background.jpg);
-	background-size: cover;
+	background-size:cover;
 	color: #fff; /* change text color to white */
 	font-family: 'Sen', sans-serif;
 	font-size: 1.3em;
@@ -17,7 +17,6 @@ body{
 	margin: 15px auto;
 	padding: 20px;
 	text-align: center;
-	min-height: 50vh;
 }
 #playList{
 	position: relative;
@@ -38,7 +37,7 @@ li.active{
 	color: #ff0000; /* change active color to red */
 }
 #controls{
-	margin-top: 90px;
+	margin-top: 130px;
 	padding: 10px;
 }
 .controls-wheels {
@@ -48,19 +47,27 @@ li.active{
 }
 .left {
 	position: relative;
-	top: -760px;
-	left: 115px;
+	top:-52.5vh;
+	left: 7.8vh;
 	animation: rotate 5s linear infinite;
 }
 .right {
 	position: relative;
-	top: -1338px;
-	left: 720px;
+	top:-92.5vh;
+	right: -50vh;
 	animation: rotate 5s linear infinite;
 }
 .controls-buttons {
-	transform: translateY(-410px);
-	justify-content: center;
+
+	width:50%;
+	top:10px;
+	right:0px;
+	text-align:right;
+	float:center;
+	color: #fff;
+	margin-bottom:20px;
+	transform: translateY(-26vh) translateX(13vh);
+
 
 }
 
@@ -73,7 +80,7 @@ progress{
 	width: 40%;
 	margin: 10px;
 	opacity: 0.5;
-	transform: translateY(-840px);
+	transform: translateY(-54vh);
 }
 
 .timer{
@@ -83,7 +90,7 @@ progress{
 	text-align:right;
 	float:center;
 	color: #fff;
-	transform: translateY(-577px) translateX(60px);
+	transform: translateY(-39.5vh) translateX(3.5vh);
 }
 .volumen{
 	width:50%;
@@ -93,14 +100,14 @@ progress{
 	float:center;
 	color: #fff;
 	margin-bottom:20px;
-	transform: translateY(-120px) translateX(170px);
+	transform: translateY(-5vh) translateX(10vh);
 
 
 }
 #currentPlay{
 	color: #ff0000; /* change current play color to red */
 	position: relative;
-	top: -895px;
+	top: -59vh;
 }
 h3{
 	color: #fff; /* change h3 color to white */
