@@ -1,9 +1,12 @@
 //Array con el listado de canciones a mostrar en el reprodutor
 const canciones = [
-"Disclosure - You & Me (Flume Remix).mp3",
 "Dezko - Ascend.mp3",
-"Spada Korolova - Be Strong.mp3"
-] 
+"Disclosure - You & Me (Flume Remix).mp3",
+"Spada Korolova - Be Strong.mp3",
+"Elderbrook - Numb.mp3",
+"Lynnic Dinia - With You.mp3",
+"Collem - Alma Gemela (Extended Mix).mp3"
+]
 var indiceActual = new Array(1)
 //Funcion para crear mediante javascript el listado de canciones
 function crearPlayList(){

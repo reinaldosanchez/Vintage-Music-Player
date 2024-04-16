@@ -8,7 +8,8 @@
 	}
   }
 body{
-	background: linear-gradient(to right, #000 , #000); /* change background to black */
+	background-image: url(/assets/background.jpg);
+	background-size: cover;
 	color: #fff; /* change text color to white */
 	font-family: 'Sen', sans-serif;
 	font-size: 1.3em;
@@ -36,12 +37,8 @@ li.active{
 	color: #ff0000; /* change active color to red */
 }
 #controls{
-	border: 1px #eee solid;
-	border-radius: 10px;
+	margin-top: 250px;
 	padding: 10px;
-	background: #f2f2f2; /* change controls background to dark grey */
-	opacity: 0.8;
-	color: #fff; /* change controls text color to white */
 }
 .controls-wheels {
 	position: absolute;
