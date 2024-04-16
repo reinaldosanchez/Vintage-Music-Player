@@ -7,108 +7,139 @@
 	  transform: rotate(0deg);
 	}
   }
-body{
-	background-image: url(/assets/background.jpg);
-	background-size:cover;
-	color: #fff; /* change text color to white */
-	font-family: 'Sen', sans-serif;
-	font-size: 1.3em;
-	width: 50%;
-	margin: 15px auto;
-	padding: 20px;
-	text-align: center;
-}
-#playList{
+  @font-face {
+    font-family: airstream;
+    src: url("/assets/magneto.ttf");
+  }
+
+  body{
+	  background-image: url(/assets/background.jpg);
+	  background-attachment: fixed;
+	  background-size: cover;
+	  font-family: 'Lato', sans-serif;
+	  font-size: 1.3em;
+	  width: 800px;
+	  margin: 0px auto;
+	  padding: 20px;
+	  text-align: center;
+	  min-height: 50vh;
+  }
+  #toggleButton {
 	position: relative;
-	background: #333; /* change playlist background to dark grey */
-	border-radius: 10px;
-	text-align: left;
-	opacity: 0.8;
-	color: #fff; /* change playlist text color to white */
-}
- li{
-	padding: 10px;
-}
-li:hover, svg:hover {
+	top: -155px;
+	background-color: #1f282d;
+	color: #f2f2f2;
+	font-family: airstream;
+	font-size: 19px;
+	border: 0;
+  }
+  #toggleButton:hover {
 	cursor: pointer;
-	color: #ff0000; /* change hover color to red */
-}
-li.active{
-	color: #ff0000; /* change active color to red */
-}
-#controls{
-	margin-top: 130px;
-	padding: 10px;
-}
-.controls-wheels {
-	position: absolute;
-	z-index: -110;
-	width: 20%;
-}
-.left {
+	color: #ef4836;
+  }
+  #playList{
+	  background: #151c21;
+	  border-radius: 10px;
+	  text-align: left;
+	  opacity: 0.8;
+	  color: #f2f2f2;
+	  font-size: 16px;
+	  width: 600px; 
+	  height: 0; 
+	  overflow: hidden; 
+	  transition: height 0.5s;
+	  padding: 0;
+	  position: relative;
+	  left: 90px;
+	  top: -150px;
+  }
+  .arrow {
 	position: relative;
-	top:-52.5vh;
-	left: 7.8vh;
-	animation: rotate 5s linear infinite;
-}
-.right {
-	position: relative;
-	top:-92.5vh;
-	right: -50vh;
-	animation: rotate 5s linear infinite;
-}
-.controls-buttons {
+	left: 50px;
+	top: -10px;
+  }
+   li{
+	  padding: 10px;
+  }
+  li:hover, svg:hover {
+	  cursor: pointer;
+	  color: #f8edcd;
+  }
+  li.active{
+	  color: #ef4836;
+  }
+  #controls{
+	  padding: 10px;
 
-	width:50%;
-	top:10px;
-	right:0px;
-	text-align:right;
-	float:center;
-	color: #fff;
-	margin-bottom:20px;
-	transform: translateY(-26vh) translateX(13vh);
+  }
 
+  
+  svg{
+	  position: relative;
+	  color: #f2f2f2;
+	  margin: 0 25px;
+	  top: -170px;
 
-}
-
-svg{
-	color: #ffffff;
-	margin: 0 30px;
-}
-
-progress{
+  }
+  
+  progress{
+	position: relative;  
 	width: 40%;
 	margin: 10px;
 	opacity: 0.5;
-	transform: translateY(-54vh);
-}
+	top: -430px;
+  }
+  
+  .timer{
 
-.timer{
-	width:50%;
-	top:10px;
-	right:0px;
-	text-align:right;
-	float:center;
-	color: #fff;
-	transform: translateY(-39.5vh) translateX(3.5vh);
-}
-.volumen{
-	width:50%;
-	top:10px;
-	right:0px;
-	text-align:right;
-	float:center;
-	color: #fff;
-	margin-bottom:20px;
-	transform: translateY(-5vh) translateX(10vh);
+	  position: relative;
+	  top:205px;
+	  left:0px;
+	  color: #f2f2f2;
+	  font-size: 12px;
+  }
+  .volumen{
+	  position: relative;
+	  color: #f2f2f2;
+	  top: 440px;
 
 
+
+  }
+  #currentPlay{
+	  color: #000;
+	  position: relative;
+	  top:-450px;
+	  font-family: airstream;
+	  font-size: 23px;
+
+  }
+  h3{
+	  color: #ef4836;
+	  margin:0px;
+  }
+  
+.wheels {
+	position: absolute;
+	z-index: -1;
+	width: 300px;
+	
 }
-#currentPlay{
-	color: #ff0000; /* change current play color to red */
+
+.rotate {
+	animation: rotate 5s linear infinite;
+  }
+
+.left {
 	position: relative;
-	top: -59vh;
+
+	top: -415px;
+	left: 71px;
 }
-h3{
-	color: #fff; /* change h3 color to white */
+.right {
+	position: relative;
+
+	top: -720px;
+	left: 405px;
 }
+

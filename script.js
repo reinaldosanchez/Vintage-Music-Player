@@ -1,4 +1,4 @@
-//Array con el listado de canciones a mostrar en el reprodutor
+
 const canciones = [
 "Dezko - Ascend.mp3",
 "Disclosure - You & Me (Flume Remix).mp3",
@@ -8,7 +8,7 @@ const canciones = [
 "Collem - Alma Gemela (Extended Mix).mp3"
 ]
 var indiceActual = new Array(1)
-//Funcion para crear mediante javascript el listado de canciones
+
 function crearPlayList(){
 	const listado = document.createElement('ol')
 	listado.setAttribute("id", 'listadoMusica')
@@ -34,19 +34,19 @@ listadoMusica.onclick = (e) =>{
 	classIconPlay();
 
 }
-//Funcion para cambiar el icono del reprodutor
+
 function classIconPlay(){
 	var element = document.getElementById("iconPlay")
 	element.classList.remove("fa-pause-circle");
     element.classList.add("fa-play-circle");
 }
-//Funcion para control del volumen
+
 const volumen= document.getElementById("volumen")
 volumen.oninput= (e) =>{
 	const vol = e.target.value
 	player.volume =vol
 }
-//Funcion para actualizar la barra de progreso del reprodutor
+
 const updateProgress = () =>{
 	if (player.currentTime >0){
 		const barra = document.getElementById('progress')
@@ -61,10 +61,10 @@ const updateProgress = () =>{
 		document.getElementById('timer').innerText=duracion 
 	}
 	if (player.ended){
-		nextMusic();//Reproducir la siguiente pista
+		nextMusic();
 	} 
 }
-//Funcion para reproducir la proxima cancion
+
 function nextMusic(){  
 	const source = document.getElementById('source');
 	var musicaActual= Number(indiceActual[0]);
@@ -82,7 +82,7 @@ function nextMusic(){
 	reproduccionActual(canciones[siguiente])
 	classIconPlay()
 }
-//Funcion para reproducir la cancion anterior
+
 function prevMusic(){  
 	const source = document.getElementById('source');
 	var musicaActual= Number(indiceActual[0]);
@@ -100,7 +100,7 @@ function prevMusic(){
 	reproduccionActual(canciones[anterior])
 	classIconPlay()
 }
-//Funcion para remover todas las clases css activas
+
 function removeActive(){
 	var elems = document.querySelectorAll(".active");
  	 [].forEach.call(elems, function(el) {
@@ -108,14 +108,15 @@ function removeActive(){
  	 });
  	 return elems
 }
-//Funcion para mostrar el nombre del arhivo actual en reproduccion
+
 function reproduccionActual(texto){
-	document.getElementById('currentPlay').innerText=texto
+	var nombreSinExtension = texto.replace('.mp3', '');
+	document.getElementById('currentPlay').innerText = nombreSinExtension;
 }
-//Funcion para cargar las canciones en el reproductor
+
 function loadMusic(ruta){
 	var source = document.getElementById('source')
-	var folder ="audio";//Carpeta donde tenemos almancenada la musica
+	var folder ="audio";
 	source.src= folder+"/"+ruta
 	var index= indiceActual[0]= canciones.indexOf(ruta)
 	removeActive()
@@ -124,30 +125,43 @@ function loadMusic(ruta){
 	reproduccionActual(ruta)
 	player.load()
 }
-//Funcion para pausar o darle play 
+
 function togglePlay() {
+	var leftWheel = document.querySelector('.left');
+	var rightWheel = document.querySelector('.right');
+  
 	if (player.paused){
-		toggleIcon();
-		return player.play();
+	  toggleIcon();
+  
+
+	  leftWheel.classList.add('rotate');
+	  rightWheel.classList.add('rotate');
+  
+	  return player.play();
 	} else {
-		toggleIcon();
-		return player.pause();
+	  toggleIcon();
+  
+
+	  leftWheel.classList.remove('rotate');
+	  rightWheel.classList.remove('rotate');
+  
+	  return player.pause();
 	}
-}
-//Funcion para cambiar el icono play o pause
+  }
+
 function toggleIcon() {
    var element = document.getElementById("iconPlay");
    element.classList.toggle("fa-pause-circle");
    element.classList.toggle("fa-play-circle");
 }
-//Funcion para que al dar click sobre la barra de progeso se permita adelantar
+
 progress.addEventListener('click', adelantar);
 function adelantar(e){
 	const scrubTime = (e.offsetX / progress.offsetWidth) * player.duration;
 	player.currentTime = scrubTime;
 	sonsole.log(e);
 }
-//Funcion para convertir segundos a minutos y horas
+
 function secondsToString(seconds) {
 	var hour="";
 	if (seconds>3600){
@@ -162,3 +176,42 @@ function secondsToString(seconds) {
   return hour  + minute + ':' + second;
 }
 loadMusic(canciones[0])
+
+function toggleArrow() {
+	var upArrow = document.getElementById("upArrow");
+	var downArrow = document.getElementById("downArrow");
+	
+	upArrow.classList.toggle("fa-angle-up");
+	upArrow.classList.toggle("fa-angle-down");
+	
+	downArrow.classList.toggle("fa-angle-down");
+	downArrow.classList.toggle("fa-angle-up");
+  }
+
+
+var toggleButton = document.querySelector('#toggleButton');
+
+
+var scrollPosition = 0;
+
+toggleButton.addEventListener('click', function() {
+
+  var playList = document.querySelector('#playList');
+  
+  if (playList.style.height === '270px') {
+
+    playList.style.height = '0';
+
+    window.scrollTo(0, scrollPosition);
+  } else {
+    playList.style.height = '270px';
+
+    scrollPosition = window.pageYOffset;
+
+    window.scrollTo(0, playList.offsetTop);
+
+	playList.style.overflow = 'auto';
+  }
+  
+   toggleArrow();
+});

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Vintage Music Player</title>
-	<link href="style.css" rel="stylesheet"> <!--load all styles -->
-	<link href="fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
-	<script defer src="fontawesome/js/all.js"></script> <!--load all styles -->
+	<title>Vintage Music PLayer</title>
+	<link href="style.css" rel="stylesheet"> 
+	<link href="fontawesome/css/all.css" rel="stylesheet"> 
+	<script defer src="fontawesome/js/all.js"></script> 
 </head>
 <body>
 	<audio id="player" ontimeupdate="updateProgress();">
@@ -14,34 +14,28 @@
 	</audio>
 	
 	<div id="controls">
-		<img src="/assets/cassette.svg" alt="cassette">
-		<div class="controls-wheels">
-			<img class="left" src="/assets/Left.svg" alt="left">
-			<img class="right" src="/assets/Left.svg" alt="right">
-		</div>
 		<div class="timer" id="timer">
-			 
+			&nbsp;
 		</div>
 		<div class="volumen">
-			Vol: 
-			<i class="fas fa-volume-down"></i> 
 			<input type="range" name="volumen" id="volumen" min="0" max="1" step="0.01" value="0.75"> 
-			<i class="fas fa-volume-up"></i>
 		</div>
-		<div class="controls-buttons">
-			<i class="fas fa-backward fa-5x" onclick="prevMusic();"></i>
-			<i class="far fa-play-circle fa-5x" onclick="togglePlay();" id="iconPlay"></i> 
-			<i class="fas fa-forward fa-5x" onclick="nextMusic();"></i>
+		<img src="/assets/cassette.svg">
+		<div class="wheels">
+			<img class="left" src="/assets/Left.svg">
+			<img class="right"src="/assets/Left.svg">
 		</div>
+		<i class="fas fa-backward fa-2x" onclick="prevMusic();"></i>
+		<i class="far fa-play-circle fa-2x" onclick="togglePlay();" id="iconPlay"></i> 
+		<i class="fas fa-forward fa-2x" onclick="nextMusic();"></i>
 		<br>
 		<span id="currentPlay"></span><br>
 		<progress id="progress" value="0" max="100" ></progress>
-		<!---->
 		<h3></h3>
+		<button id="toggleButton">Playlist</button>
+		<div class="arrow"><i id="upArrow" class="fa fa-angle-up" style="display: none;"></i><i id="downArrow" class="fa fa-angle-down"></i></div>
 		<div id="playList"></div>
 	</div>
-	
-	
-	<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
