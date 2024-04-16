@@ -20,6 +20,7 @@ body{
 	min-height: 50vh;
 }
 #playList{
+	position: relative;
 	background: #333; /* change playlist background to dark grey */
 	border-radius: 10px;
 	text-align: left;
@@ -37,7 +38,7 @@ li.active{
 	color: #ff0000; /* change active color to red */
 }
 #controls{
-	margin-top: 250px;
+	margin-top: 90px;
 	padding: 10px;
 }
 .controls-wheels {
@@ -47,18 +48,18 @@ li.active{
 }
 .left {
 	position: relative;
-	top: -835px;
-	left: 125px;
+	top: -760px;
+	left: 115px;
 	animation: rotate 5s linear infinite;
 }
 .right {
 	position: relative;
-	top: -1470px;
-	left: 790px;
+	top: -1338px;
+	left: 720px;
 	animation: rotate 5s linear infinite;
 }
 .controls-buttons {
-	transform: translateY(-440px);
+	transform: translateY(-410px);
 	justify-content: center;
 
 }
@@ -72,7 +73,7 @@ progress{
 	width: 40%;
 	margin: 10px;
 	opacity: 0.5;
-	transform: translateY(-890px);
+	transform: translateY(-840px);
 }
 
 .timer{
@@ -82,7 +83,7 @@ progress{
 	text-align:right;
 	float:center;
 	color: #fff;
-	transform: translateY(-630px) translateX(60px);
+	transform: translateY(-577px) translateX(60px);
 }
 .volumen{
 	width:50%;
@@ -99,7 +100,7 @@ progress{
 #currentPlay{
 	color: #ff0000; /* change current play color to red */
 	position: relative;
-	top: -935px;
+	top: -895px;
 }
 h3{
 	color: #fff; /* change h3 color to white */
