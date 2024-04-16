@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@keyframes rotate {
+	from {
+	  transform: rotate(360deg);
+	}
+	to {
+	  transform: rotate(0deg);
+	}
+  }
+body{
+	background: linear-gradient(to right, #000 , #000); /* change background to black */
+	color: #fff; /* change text color to white */
+	font-family: 'Sen', sans-serif;
+	font-size: 1.3em;
+	width: 50%;
+	margin: 15px auto;
+	padding: 20px;
+	text-align: center;
+	min-height: 50vh;
+}
+#playList{
+	background: #333; /* change playlist background to dark grey */
+	border-radius: 10px;
+	text-align: left;
+	opacity: 0.8;
+	color: #fff; /* change playlist text color to white */
+}
+ li{
+	padding: 10px;
+}
+li:hover, svg:hover {
+	cursor: pointer;
+	color: #ff0000; /* change hover color to red */
+}
+li.active{
+	color: #ff0000; /* change active color to red */
+}
+#controls{
+	border: 1px #eee solid;
+	border-radius: 10px;
+	padding: 10px;
+	background: #f2f2f2; /* change controls background to dark grey */
+	opacity: 0.8;
+	color: #fff; /* change controls text color to white */
+}
+.controls-wheels {
+	position: absolute;
+	z-index: -110;
+	width: 20%;
+}
+.left {
+	position: relative;
+	top: -835px;
+	left: 125px;
+	animation: rotate 5s linear infinite;
+}
+.right {
+	position: relative;
+	top: -1470px;
+	left: 790px;
+	animation: rotate 5s linear infinite;
+}
+.controls-buttons {
+	transform: translateY(-440px);
+	justify-content: center;
+
+}
+
+svg{
+	color: #ffffff;
+	margin: 0 30px;
+}
+
+progress{
+	width: 40%;
+	margin: 10px;
+	opacity: 0.5;
+	transform: translateY(-890px);
+}
+
+.timer{
+	width:50%;
+	top:10px;
+	right:0px;
+	text-align:right;
+	float:center;
+	color: #fff;
+	transform: translateY(-630px) translateX(60px);
+}
+.volumen{
+	width:50%;
+	top:10px;
+	right:0px;
+	text-align:right;
+	float:center;
+	color: #fff;
+	margin-bottom:20px;
+	transform: translateY(-120px) translateX(170px);
+
+
+}
+#currentPlay{
+	color: #ff0000; /* change current play color to red */
+	position: relative;
+	top: -935px;
+}
+h3{
+	color: #fff; /* change h3 color to white */
+}
