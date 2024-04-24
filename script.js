@@ -1,24 +1,40 @@
 
-const canciones = [
-"Dezko - Ascend.mp3",
-"Disclosure - You & Me (Flume Remix).mp3",
-"Spada Korolova - Be Strong.mp3",
-"Elderbrook - Numb.mp3",
-"Lynnic Dinia - With You.mp3",
-"Collem - Alma Gemela (Extended Mix).mp3"
-]
-var indiceActual = new Array(1)
+var indiceActual = new Array(1);
 
-function crearPlayList(){
-	const listado = document.createElement('ol')
-	listado.setAttribute("id", 'listadoMusica')
-	for (let i = 0; i<canciones.length; i++){
-		const item = document.createElement('li')
-		item.appendChild(document.createTextNode(canciones[i])) 
-		item.setAttribute("id", canciones.indexOf(canciones[i]))
-		listado.appendChild(item)
-	}
-	return listado
+axios.get('https://leonardoapi.onrender.com/songs')
+  .then(function (response) {
+    const canciones = response.data.songs.map(song => `${song.title} - ${song.author}`);
+    const listado = crearPlayList(canciones);
+    document.getElementById('playList').appendChild(listado);
+
+    var listadoMusica= document.getElementById('listadoMusica');
+    listadoMusica.onclick = (e) =>{
+      const itemClick = e.target;
+      removeActive();
+      itemClick.classList.add("active");
+      reproduccionActual(itemClick.innerText);
+      loadMusic(itemClick.innerText);
+      player.play();
+      indiceActual[0]= e.target.id;
+      classIconPlay();
+    };
+
+    loadMusic(canciones[0]);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
+function crearPlayList(canciones) {
+  const listado = document.createElement('ol');
+  listado.setAttribute("id", 'listadoMusica');
+  canciones.forEach((cancion, index) => {
+    const item = document.createElement('li');
+    item.appendChild(document.createTextNode(cancion));
+    item.setAttribute("id", index);
+    listado.appendChild(item);
+  });
+  return listado;
 }
 document.getElementById('playList').appendChild(crearPlayList())
 
